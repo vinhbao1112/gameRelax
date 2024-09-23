@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Spearow",
+    "imgFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/21.png",
+    "imgBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png",
+    "status": "is-covered"
+  },
+  {
+    "name": "Wartortle",
+    "imgFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/8.png",
+    "imgBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
+    "status": "is-covered"
+  },
+  {
+    "name": "Ponyta",
+    "imgFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/77.png",
+    "imgBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/77.png",
+    "status": "is-uncovered"
+  },
+  {
+    "name": "Gastly",
+    "imgFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/92.png",
+    "imgBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png",
+    "status": "is-uncovered"
+  }
+]

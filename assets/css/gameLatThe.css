@@ -1,0 +1,558 @@
+/*** IMPORTS ***/
+/**************************/
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+
+/*** COLOR ***/
+/**************************/
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-light: #ededed;
+  --color-gray-dark: #333333;
+  --color-error: #ff6347;
+  --color-error--darken: #de553c;
+  --color-success: #30d9c4;
+  --color-success--darken: #24ae9e;
+  --color-pokemon-1: #ff0000;
+  --color-pokemon-2: #24292e;
+  --color-pokemon-3: #3b4cca;
+  --color-pokemon-3--dark: #2f3ca1;
+  --color-pokemon-4: #ffde00;
+  --color-pokemon-5: #83a125;
+}
+
+/*** RESET ***/
+/**************************/
+
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*** GENERAL ***/
+/**************************/
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  text-align: center;
+  background: url("~@/assets/images/bg.jpg") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+body:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #24292e;
+  opacity: 0.8;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+/*** KEYFRAMES ***/
+/**************************/
+
+@keyframes fadeDownUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  95% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes shakeY {
+  from, to {
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(0, -0.5rem, 0);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translate3d(0, 0.5rem, 0);
+  }
+}
+
+/*** CURRENT DATE TIME ***/
+/**************************/
+
+.current-date-time {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: fixed;
+  top: 0;
+  right: 0;
+  text-align: right;
+  line-height: 120%;
+  color: #3b4cca;
+}
+
+.current-date-time:after {
+  width: 17rem;
+  height: 8.5rem;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: -0.1rem;
+  right: -0.1rem;
+  z-index: -1;
+  background-image: url("/assets/images/bg-current-date-time.svg");
+  background-position: top right;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*** LOGO ***/
+/**************************/
+
+.logo-pokemon {
+  max-width: 100%;
+  margin: 0 auto 3rem;
+  height: auto;
+}
+
+/*** PAGE ***/
+/**************************/
+
+.page-title {
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 5vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.page-content {
+  margin: 8rem 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/*** GAME BUTTON ***/
+/**************************/
+
+.returnMenu {
+  position: absolute;
+  top: 2rem;
+  background-color: #ffde00;
+  border-radius: 5px;
+  border: none;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+.button {
+  padding: 1rem 2rem;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #333333;
+  outline: none;
+  cursor: pointer;
+  box-shadow: inset 0 0 0.5rem 0 #000000;
+}
+
+.button:hover {
+  background-color: #000000;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.button--color {
+  background-color: #3b4cca;
+}
+
+.button--color:hover {
+  background-color: #2f3ca1;
+}
+
+.button--game {
+  width: fit-content;
+  margin: 0 auto;
+  color: #3b4cca;
+  font-size: 2rem;
+  font-weight: 700;
+  background-color: #ffde00;
+  box-shadow: inset 0 0 0.5rem 0 #3b4cca;
+}
+
+.button--game:hover {
+  color: #3b4cca;
+  background-color: #ffffff;
+}
+
+/*** LOADER ***/
+/**************************/
+
+.loader {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  backdrop-filter: blur(0.5rem);
+}
+
+.loader:after {
+  content: "";
+  display: inline-block;
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../images/loader.gif");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*** GAME OPTIONS ***/
+/**************************/
+
+.game-options {
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.game-options__label {
+  position: relative;
+  display: inline-block;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.game-options__label:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.game-options__label svg {
+  fill: none;
+  vertical-align: middle;
+}
+
+.game-options__label svg circle {
+  stroke-width: 2;
+  stroke: #83a125;
+}
+
+.game-options__label svg path {
+  stroke: #83a125;
+}
+
+.game-options__label svg path.inner {
+  stroke-width: 6;
+  stroke-dasharray: 19;
+  stroke-dashoffset: 19;
+}
+
+.game-options__label svg path.outer {
+  stroke-width: 2;
+  stroke-dasharray: 57;
+  stroke-dashoffset: 57;
+}
+
+.game-options__input {
+  width: 2.2rem;
+  height: 2.2rem;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.game-options__input:checked + svg path {
+  transition: all 0.4s ease;
+}
+
+.game-options__input:checked + svg path.inner {
+  stroke-dashoffset: 38;
+  transition-delay: 0.3s;
+}
+
+.game-options__input:checked + svg path.outer {
+  stroke-dashoffset: 0;
+}
+
+.game-options__text {
+  display: inline-block;
+  vertical-align: middle;
+  color: #000000;
+}
+
+/*** GAME DATA ***/
+/**************************/
+
+.game-data {
+  display: flex;
+  justify-content: center;
+}
+
+.game-data__item {
+  padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.game-data__item:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.game-data__attempts {}
+
+.game-data__opportunities {
+  color: #ffffff;
+  border: 0.2rem solid #ffffff;
+  background-color: #333333;
+}
+
+.game-data__opportunities--error {
+  color: #ffffff;
+  border: 0.2rem solid #ffffff;
+  background-color: #ff6347;
+  -webkit-animation: shakeY 1s ease-in-out forwards;
+  animation: shakeY 1s ease-in-out forwards;
+}
+
+.game-data__fails {
+  color: #ffffff;
+  border: 0.2rem solid #b7e522;
+  background-color: #de553c;
+}
+
+.game-data__counter {
+  padding: 0;
+  display: inline-block;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+/*** GAME CARDS ***/
+/**************************/
+
+.game-list-cards {
+  max-width: 50rem;
+  margin: 2rem auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  perspective: 60rem;
+}
+
+.game-list-cards--8 {
+  max-width: 90rem;
+}
+
+.game-list-cards--10 {
+  max-width: 120rem;
+}
+
+.game-card {
+  width: 10rem;
+  margin: 0.5rem;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  list-style: none;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.game-card.is-covered {
+  transform: rotateY(180deg);
+}
+
+.game-card.is-uncovered {
+  pointer-events: none;
+}
+
+.game-card__face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 1rem;
+  border: 0.4rem solid #ffffff;
+  background-color: #ffffff;
+  box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.5);
+  backface-visibility: hidden;
+}
+
+.game-card-back {
+  transform: rotateY(180deg);
+}
+
+.game-card.is-covered .game-card-back {
+}
+
+.game-card-back__inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 4rem;
+  border-radius: 0.5rem;
+}
+
+.game-card-back__inner:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 0.5rem;
+  background-color: #3b4cca;
+  opacity: 0.9;
+}
+
+.game-card-front {
+  display: flex;
+  padding: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.game-card-front__name {
+  color: #3b4cca;
+}
+
+.game-card.is-covered .game-card-front {
+  opacity: 0;
+}
+
+.game-card-front__image {
+  width: 100%;
+}
+
+/*** GAME RESULT ***/
+/**************************/
+
+.game-result {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.5);
+}
+
+.game-result--win {
+  color: #333333;
+  background-color: #30d9c4;
+}
+
+.game-result--lose {
+  background-color: #ff6347;
+}
+
+/*** ANIMATIONS ***/
+/**************************/
+
+.slide-down-up-enter-active {
+  animation: fadeDownUp 4s forwards 1s;
+}
+
+.slide-down-up-enter-to {
+  opacity: 0;
+  transform: translateY(100%);
+}
