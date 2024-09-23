@@ -19,7 +19,7 @@
       <div class="vien">
           <button
               class="vien-item"
-              @click="randomItem1"
+              @click="randomItem(1)"
               :disabled="!checkRandom"
               :class="{ 'cursor-pointer': checkRandom }"
               :style="{ 'background-color': currentItem === 1 ? 'brown' : 'rgb(47, 204, 212)' ,
@@ -29,7 +29,7 @@
           </button>
           <button
               class="vien-item"
-              @click="randomItem2"
+              @click="randomItem(2)"
               :disabled="!checkRandom"
               :class="{ 'cursor-pointer': checkRandom}"
               :style="{ 'background-color': currentItem === 2 ? 'brown' : 'rgb(136, 103, 218)',
@@ -39,7 +39,7 @@
           </button>
           <button
               class="vien-item"
-              @click="randomItem3"
+              @click="randomItem(3)"
               :disabled="!checkRandom"
               :class="{ 'cursor-pointer': checkRandom }"
               :style="{ 'background-color': currentItem === 3 ? 'brown' : 'rgb(5, 219, 15)',
@@ -100,28 +100,10 @@ export default {
       this.result2 = Math.floor(Math.random() * 6) + 1
       this.result3 = Math.floor(Math.random() * 6) + 1
     },
-    randomItem1() {
+    randomItem(itemNumber) {
       if (this.checkRandom) {
-        this.currentItem = 1
-        this.result1 = Math.floor(Math.random() * 6) + 1
-        setTimeout(()=> {
-          this.currentItem = null
-        }, this.getTime)
-      }
-    },
-    randomItem2() {
-      if (this.checkRandom) {
-        this.currentItem = 2
-        this.result2 = Math.floor(Math.random() * 6) + 1
-        setTimeout(()=> {
-          this.currentItem = null
-        }, this.time)
-      }
-    },
-    randomItem3() {
-      if (this.checkRandom) {
-        this.currentItem = 3
-        this.result3 = Math.floor(Math.random() * 6) + 1
+        this.currentItem = itemNumber
+        this[`result${itemNumber}`] = Math.floor(Math.random() * 6) + 1
         setTimeout(()=> {
           this.currentItem = null
         }, this.time)
